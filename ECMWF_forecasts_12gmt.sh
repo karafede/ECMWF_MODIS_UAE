@@ -20,9 +20,14 @@ mkdir -p ${dest}/${date_1}/ ; cd ${dest}/${date_1}/ ;
 
 # cp -r ${mainPath}/forecasts_downloads/${date_1}/PM25/*.tif .
 
-scp ${mainPath}/forecasts_downloads/${date_1}/PM25/*.tif fkaragulian@10.102.14.39:/home/fkaragulian/mtg/_SHARED_FOLDERS/AQ_Website/ECMWF_forecasts_2017/PM25/
+# scp ${mainPath}/forecasts_downloads/${date_1}/PM25/*.tif fkaragulian@10.102.14.39:/home/fkaragulian/mtg/_SHARED_FOLDERS/AQ_Website/ECMWF_forecasts_2017/PM25/
 
-rsync -avz ${mainPath}/forecasts_downloads/${date_1}/PM25/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/
+rsync -avz ${mainPath}/forecasts_downloads/${date_1}/PM25/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/ 
+rsync -avz ${mainPath}/forecasts_downloads/${date_1}/NO2/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/NO2/
+rsync -avz ${mainPath}/forecasts_downloads/${date_1}/SO2/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/SO2/
+rsync -avz ${mainPath}/forecasts_downloads/${date_1}/CO/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/CO/
+rsync -avz ${mainPath}/forecasts_downloads/${date_1}/O3/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/O3/
+rsync -avz ${mainPath}/forecasts_downloads/${date_1}/BC_AOD/*.tif pvernier@atlas-prod.minet.ae:/home/pvernier/scripts_cron/forecast_data/BC_AOD/
 
 echo "fine"
 
