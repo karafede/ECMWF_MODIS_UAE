@@ -16,6 +16,17 @@ cd $mainPath
 /apps/R/R-3.3.2/bin/Rscript /home/fkaragulian/ECMWF_forecasts/CAMS_NRT_download_NEW.R
 
 
+no_files=`ls ${mainPath}/forecasts_downloads/${date_1}/*/*.tif | wc -l`
+
+if [ ${no_files} -eq 72 ] ; then
+
+   echo "ECMWF Forecast Maps created"
+else
+   echo "ECMWF Forecast Maps creation failed"
+   /usr/bin/python ${mainPath}/sendMail.py "ECMWF Forecast Maps Creation failed: Date:${date}$hr"
+fi
+
+
 mkdir -p ${dest}/${date_1}/ ; cd ${dest}/${date_1}/ ; 
 
 #cp -r ${mainPath}/forecasts_downloads/${date_1}/PM25/*.tif .
